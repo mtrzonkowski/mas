@@ -21,5 +21,46 @@ public class Turniej {
     
     private static double procentZawodnikowProf=0.6;
     private ArrayList<ListaStartowa> listyStartowe;
+
+    public Turniej(String naywa, Date dataRozpoczecia, Date dataZakonczenia, ProfTyp typProfesjonalizmu) {
+        this.naywa = naywa;
+        this.dataRozpoczecia = dataRozpoczecia;
+        this.dataZakonczenia = dataZakonczenia;
+        this.typProfesjonalizmu = typProfesjonalizmu;
+    }
+
+    public Date getDataRozpoczecia() {
+        return dataRozpoczecia;
+    }
+
+    public void setDataRozpoczecia(Date dataRozpoczecia) {
+        this.dataRozpoczecia = dataRozpoczecia;
+    }
+
+    public Date getDataZakonczenia() {
+        return dataZakonczenia;
+    }
+
+    public void setDataZakonczenia(Date dataZakonczenia) {
+        this.dataZakonczenia = dataZakonczenia;
+    }
+
+    public ProfTyp getTypProfesjonalizmu() {
+        return typProfesjonalizmu;
+    }
+
+    public void setTypProfesjonalizmu(ProfTyp typProfesjonalizmu) {
+        this.typProfesjonalizmu = typProfesjonalizmu;
+    }
+
+    public static double getProcentZawodnikowProf() {
+        return procentZawodnikowProf;
+    }
+
+    public static void setProcentZawodnikowProf(double procentZawodnikowProf) {
+        Turniej.procentZawodnikowProf = procentZawodnikowProf;
+    }
+    
+    
     
 }
