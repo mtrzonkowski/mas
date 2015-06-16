@@ -15,6 +15,7 @@ public class ListaStartowa {
     
     private String kategoria;
     
+    private Turniej turniej;
     private HashMap<String,Druzyna> druzyny;
     
 }
