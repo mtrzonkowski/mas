@@ -5,10 +5,18 @@
  */
 package mas;
 
+import java.util.Date;
+
 /**
  *
  * @author mtrzonkowski
  */
-public class ZawodnikAmator {
+public class ZawodnikAmator extends Zawodnik{
     
+    private boolean zgodaRodzicow;
+    private boolean potrzebnaZgodaRodzicow;
+
+    public ZawodnikAmator(Osoba osoba, Plec plec, Date dataRejestracji, String rodzajWyposarzenia) {
+        super(osoba, plec, dataRejestracji, rodzajWyposarzenia);
+    }
 }

@@ -20,7 +20,7 @@ public class Zawodnik {
     
     private Osoba osoba;
 
-    private Zawodnik(Osoba osoba,Plec plec, Date dataRejestracji, String rodzajWyposarzenia) {
+    public Zawodnik(Osoba osoba,Plec plec, Date dataRejestracji, String rodzajWyposarzenia) {
         this.osoba = osoba;
         this.plec = plec;
         this.dataRejestracji = dataRejestracji;

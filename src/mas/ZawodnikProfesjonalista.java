@@ -5,10 +5,16 @@
  */
 package mas;
 
+import java.util.Date;
+
 /**
  *
  * @author mtrzonkowski
  */
-public class ZawodnikProfesjonalista {
+public class ZawodnikProfesjonalista extends Zawodnik {
+
+    public ZawodnikProfesjonalista(Osoba osoba, Plec plec, Date dataRejestracji, String rodzajWyposarzenia) {
+        super(osoba, plec, dataRejestracji, rodzajWyposarzenia);
+    }
     
 }
