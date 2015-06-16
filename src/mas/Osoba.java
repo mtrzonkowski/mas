@@ -21,10 +21,10 @@ public class Osoba {
     private Zawodnik zawodnik;
     private Sedzia  sedzia;
 
-    public Osoba(String imie, String nazwisko, Date datrUrodzenia) {
+    public Osoba(String imie, String nazwisko, Date dataUrodzenia) {
         this.imie = imie;
         this.nazwisko = nazwisko;
-        this.datrUrodzenia = datrUrodzenia;
+        this.datrUrodzenia = dataUrodzenia;
     }
 
     public String getImie() {

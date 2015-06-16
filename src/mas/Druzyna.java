@@ -23,7 +23,7 @@ public class Druzyna {
     private Date dataRozwiazania;
     
     //Asocjacje
-    private ArrayList<ZawodnikWdruzynie> zawodnicyWDruzynie;
+    private ArrayList<ZawodnikWDruzynie> zawodnicyWDruzynie;
     private ArrayList<ListaStartowa> listyStartowe;
     private ArrayList<Mecz> mecze;
 
@@ -60,7 +60,7 @@ public class Druzyna {
         this.dataRozwiazania = dataRozwiazania;
     }
 
-    public ArrayList<ZawodnikWdruzynie> getZawodnicyWDruzynie() {
+    public ArrayList<ZawodnikWDruzynie> getZawodnicyWDruzynie() {
         return zawodnicyWDruzynie;
     }
 
