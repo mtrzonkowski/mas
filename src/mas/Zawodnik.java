@@ -5,6 +5,7 @@
  */
 package mas;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -20,6 +21,8 @@ public class Zawodnik {
     
     private Osoba osoba;
 
+    private ArrayList<ZawodnikWDruzynie> zawodnikWDruzynach=new ArrayList<ZawodnikWDruzynie>();
+    
     public Zawodnik(Osoba osoba,Plec plec, Date dataRejestracji, String rodzajWyposarzenia) {
         this.osoba = osoba;
         this.plec = plec;
@@ -72,4 +75,32 @@ public class Zawodnik {
         
     }
     
+    public ArrayList<ZawodnikWDruzynie> getZawodnikWDrużynie() {
+        return zawodnikWDruzynach;
+    }
+
+    public void addDruzyna(Druzyna druzyna) {
+        boolean nieMaAsocjacji = true;
+        if(!zawodnikWDruzynach.isEmpty()){
+            for (ZawodnikWDruzynie zawodnikWDruzynie : zawodnikWDruzynach) {
+                if(zawodnikWDruzynie.getDruzyna()== druzyna && zawodnikWDruzynie.isZawodnikActive()){
+                    nieMaAsocjacji=false;
+                }
+            }
+        }
+        if(nieMaAsocjacji){
+            new ZawodnikWDruzynie(this, druzyna);
+        }
+    }
+
+    public void removeDrużyna(Druzyna druzyna) {
+       if(!zawodnikWDruzynach.isEmpty()){
+            for (int i=zawodnikWDruzynach.size()-1;i>-1;i--) {
+                if(zawodnikWDruzynach.get(i).getDruzyna()==druzyna){
+                    zawodnikWDruzynach.get(i).removeDruzyna();
+                    zawodnikWDruzynach.get(i).removeZawodnik();
+                }
+            }
+        }
+    }
 }

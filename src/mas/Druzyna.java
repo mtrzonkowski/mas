@@ -13,15 +13,13 @@ import java.util.Date;
  * @author mtrzonkowski
  */
 public class Druzyna {
-    
-    
+
     //Atrybuty
-    
     private String nazwa;
     private String opis;
     private Date dataPowstania;
     private Date dataRozwiazania;
-    
+
     //Asocjacje
     private ArrayList<ZawodnikWDruzynie> zawodnicyWDruzynie;
     private ArrayList<ListaStartowa> listyStartowe;
@@ -31,9 +29,13 @@ public class Druzyna {
         this.nazwa = nazwa;
         this.opis = opis;
         this.dataPowstania = dataPowstania;
-        zawodnicyWDruzynie=new ArrayList<ZawodnikWDruzynie>();
-        listyStartowe=new ArrayList<ListaStartowa>();
-        mecze= new ArrayList<Mecz>();
+        zawodnicyWDruzynie = new ArrayList<ZawodnikWDruzynie>();
+        listyStartowe = new ArrayList<ListaStartowa>();
+        mecze = new ArrayList<Mecz>();
+    }
+
+    public String getNazwa() {
+        return nazwa;
     }
 
     public String getOpis() {
@@ -72,19 +74,37 @@ public class Druzyna {
         return mecze;
     }
     
-    
+
     //Metody
-    
-    public void addZawodnik(Zawodnik zawodnik){
-        
+    public void addZawodnik(Zawodnik zawodnik) {
+
     }
-    public void removeZawodnik(Zawodnik zawodnik){
-        
+
+    public void removeZawodnik(Zawodnik zawodnik) {
+
     }
-    public void dodajMecz(Mecz mecz){
-        
+
+    public void dodajMecz(Mecz mecz) {
+
+    }
+    
+    public void addListaStartowa(ListaStartowa listaStartowa){
+        if(!listyStartowe.contains(listaStartowa)){
+            listyStartowe.add(listaStartowa);
+            listaStartowa.addDruzyna(this);
+        };
+    }
+    public void removeListaStartowa(ListaStartowa listaStartowa){
+        if(listyStartowe.contains(listaStartowa)){
+            listyStartowe.remove(listaStartowa);
+            listaStartowa.removeDruzyna(this);
+        }
     }
     
     
-    
+    @Override
+    public String toString() {
+        return this.nazwa;
+    }
+
 }

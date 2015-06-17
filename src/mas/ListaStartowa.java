@@ -5,6 +5,7 @@
  */
 package mas;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -17,5 +18,34 @@ public class ListaStartowa {
     
     private Turniej turniej;
     private HashMap<String,Druzyna> druzyny;
+
+    private ListaStartowa( Turniej turniej,String kategoria) {
+        this.kategoria = kategoria;
+        this.turniej = turniej;
+    }
     
+    public static ListaStartowa createListaStartowa(Turniej turniej,String kategoria){
+        return new ListaStartowa(turniej,kategoria);
+    }
+    
+    public void addDruzyna(Druzyna druzyna){
+        if(!druzyny.containsKey(druzyna.getNazwa())){
+            druzyny.put(druzyna.getNazwa(), druzyna);
+            druzyna.addListaStartowa(this);
+        }
+    }
+    public void removeDruzyna(Druzyna druzyna){
+        if(!druzyny.containsKey(druzyna.getNazwa())){
+            druzyny.remove(druzyna.getNazwa());
+            druzyna.removeListaStartowa(this);
+        }
+    }
+    
+    private ArrayList<String> getDruzynyKeys(){
+        return (ArrayList)druzyny.keySet();
+    }
+    
+    public String toString(){
+        return turniej+" lista "+kategoria;
+    }
 }

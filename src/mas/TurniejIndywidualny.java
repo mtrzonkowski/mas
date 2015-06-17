@@ -13,10 +13,14 @@ import java.util.Date;
  */
 public class TurniejIndywidualny extends Turniej{
     
-    private static final int limitZawodnikow=1;
+    private static final int LIMIT_ZAWODNIKOW=1;
 
     public TurniejIndywidualny(String naywa, Date dataRozpoczecia, Date dataZakonczenia, ProfTyp typProfesjonalizmu) {
         super(naywa, dataRozpoczecia, dataZakonczenia, typProfesjonalizmu);
+    }
+
+    public static int getLIMIT_ZAWODNIKOW() {
+        return LIMIT_ZAWODNIKOW;
     }
     
 }
