@@ -26,6 +26,8 @@ public class Mecz {
         this.dataRozgrywki = dataRozgrywki;
         this.sektor = sektor;
         this.sedzia = sedzia;
+        this.stanMeczu=StanMeczu.ZAPLANOWANY;
+        this.wynik=-1;
     }
 
     public Data getDataRozgrywki() {

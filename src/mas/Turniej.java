@@ -70,8 +70,8 @@ public class Turniej {
 
     }
 
-    public void removeListaStartowa() {
-
+    public void removeListaStartowa(ListaStartowa listaStartowa) {
+        this.listyStartowe.remove(listaStartowa);
     }
 
     public ArrayList<ListaStartowa> getListyStartowe() {

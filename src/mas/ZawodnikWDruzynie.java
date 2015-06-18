@@ -19,9 +19,11 @@ public class ZawodnikWDruzynie {
     private Date dataPrzystapienia;
     private Date dataOdejscia=null;
 
-    public ZawodnikWDruzynie(Zawodnik zawodnik, Druzyna druzyna) {
+    public ZawodnikWDruzynie(Zawodnik zawodnik, Druzyna druzyna,Date dataPrzystapienia,String pozycja) {
         this.zawodnik = zawodnik;
         this.druzyna = druzyna;
+        this.dataPrzystapienia=dataPrzystapienia;
+        this.pozycja=pozycja;
         zawodnik.getZawodnikWDrużynie().add(this);
         druzyna.getZawodnicyWDruzynie().add(this);
     } 
@@ -30,6 +32,7 @@ public class ZawodnikWDruzynie {
         zawodnik.getZawodnikWDrużynie().remove(this);
         this.zawodnik=null;
     }
+
     public void removeDruzyna(){
         druzyna.getZawodnicyWDruzynie().remove(this);
         this.druzyna=null;

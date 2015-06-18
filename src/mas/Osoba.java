@@ -54,6 +54,7 @@ public class Osoba {
     public Zawodnik getZawodnik() {
         return zawodnik;
     }
+  
     public void setSedzia(Sedzia sedzia) throws Exception{
         if(this.sedzia!=null && sedzia!=null){
             throw new Exception("Jedna osoba może być tylko jednym sędziom!!!");
