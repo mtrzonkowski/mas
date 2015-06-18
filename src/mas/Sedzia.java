@@ -5,6 +5,7 @@
  */
 package mas;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -17,12 +18,14 @@ public class Sedzia {
     private Date dataUzyskaniaUprawnien;
 
     private Osoba osoba;
+    private ArrayList<Mecz> mecze;
 
     private Sedzia(Osoba osoba, long numerUprawnien, Date dataUzyskaniaUprawnien) throws Exception {
         this.osoba = osoba;
         this.numerUprawnien = numerUprawnien;
         this.dataUzyskaniaUprawnien = dataUzyskaniaUprawnien;
         osoba.setSedzia(this);
+        mecze=new ArrayList<Mecz>();
     }
 
     public static Sedzia createSedzia(Osoba osoba, long numerUprawnien, Date dataUzyskaniaUprawnien) throws Exception {
@@ -58,4 +61,11 @@ public class Sedzia {
         return "Sedzia z uprawnieniami numer " + numerUprawnien + ",które uzyskał dnia " + dataUzyskaniaUprawnien.toString();
     }
 
+    public void addMecz(Mecz mecz){
+        if(!mecze.contains(mecz)){
+            mecze.add(mecz);
+            mecz.setSedzia(this);
+        }
+    }
+    
 }
