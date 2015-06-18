@@ -79,7 +79,7 @@ public class Zawodnik {
         return zawodnikWDruzynach;
     }
 
-    public void addDruzyna(Druzyna druzyna) {
+    public void addDruzyna(Druzyna druzyna,Date dataPrzystapienia,String pozycja) {
         boolean nieMaAsocjacji = true;
         if(!zawodnikWDruzynach.isEmpty()){
             for (ZawodnikWDruzynie zawodnikWDruzynie : zawodnikWDruzynach) {
@@ -89,7 +89,7 @@ public class Zawodnik {
             }
         }
         if(nieMaAsocjacji){
-            new ZawodnikWDruzynie(this, druzyna);
+            new ZawodnikWDruzynie(this, druzyna, dataPrzystapienia,pozycja);
         }
     }
 
