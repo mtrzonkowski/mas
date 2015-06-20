@@ -5,9 +5,13 @@
  */
 package mas;
 
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Hashtable;
 
 /**
  *
@@ -34,5 +38,23 @@ public class MyObject implements Serializable{
         return ekstensje;
     }
     
-    
+     /**
+     * Metoda zapisu ekstensji do strumienia wyjściowego.
+     *
+     * @param wyjscie
+     * @throws IOException
+     */
+    public static void zapiszEkstencje(ObjectOutputStream wyjscie) throws IOException {
+        wyjscie.writeObject(ekstensje);
+    }
+
+    /**
+     * Metoda odczytu ekstensji ze strumienia wejsciowego.
+     *
+     * @param wejscie
+     * @throws Exception
+     */
+    public static void czytajEkstensje(ObjectInputStream wejscie) throws Exception {
+        ekstensje = (HashMap) wejscie.readObject();
+    }
 }
