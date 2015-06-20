@@ -42,9 +42,14 @@ public class Sedzia extends MyObject{
     /**
      * Usuwa referencje na obiekt
      */
-    public void destroySedzia() {
+    public void destroySedzia() throws Exception {
         osoba=null;
+        osoba.setSedzia(null);
+        for(Mecz mecz :mecze){
+            mecz.setSedzia(null);
+        }
         mecze.clear();
+        
     }
 
     public Osoba getOsoba() {
@@ -71,7 +76,10 @@ public class Sedzia extends MyObject{
     public String toString(){
         return this.getOsoba().getImie()+" "+this.getOsoba().getNazwisko();
     }
-    
+    /**
+     * Zwraca string z pełną informacją o obiekcie typu Sędzia
+     * @return 
+     */
     public String toStringFull() {
         return this.toString()+" z uprawnieniami numer " + numerUprawnien + ",które uzyskał dnia " + dataUzyskaniaUprawnien.toString();
     }
@@ -89,7 +97,10 @@ public class Sedzia extends MyObject{
     public ArrayList<Mecz> getMecze() {
         return mecze;
     }
-
+    /**
+     * Usuwanie obiektu klasy Mecz ze zbioru tycz obiektów w obiekcie Sedzia 
+     * @param mecz 
+     */
     void removeMecz(Mecz mecz) {
         if(mecze.contains(mecz)){
             mecze.remove(mecz);

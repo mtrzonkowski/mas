@@ -86,7 +86,11 @@ public class Mecz extends MyObject{
     public void setStanMeczu(StanMeczu stanMeczu) {
         this.stanMeczu = stanMeczu;
     }
-    
+    /**
+     * Dodawannie drużyny do meczu.
+     * @param druzyna
+     * @throws Exception 
+     */
     public void addDruzyna(Druzyna druzyna) throws Exception{
         if(druzyny[0]!=null && druzyny[1]!=null){
             druzyna.removeMecz(this);
@@ -98,6 +102,12 @@ public class Mecz extends MyObject{
             druzyny[0]=druzyna;
         }
     }
+    
+    /**
+     * Usuwanie druzyny z meczu.
+     * @param druzyna
+     * @throws Exception 
+     */
     public void removeDruzyna(Druzyna druzyna) throws Exception{
         if(druzyny[1]==druzyna){
             druzyny[1]=null;

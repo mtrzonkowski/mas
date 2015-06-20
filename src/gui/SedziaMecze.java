@@ -6,7 +6,6 @@
 package gui;
 
 import java.util.ArrayList;
-import javax.swing.ComboBoxModel;
 import mas.Mecz;
 import mas.Sedzia;
 
