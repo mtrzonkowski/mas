@@ -79,4 +79,24 @@ public class Mecz extends MyObject{
         this.stanMeczu = stanMeczu;
     }
     
+    public void addDruzyna(Druzyna druzyna) throws Exception{
+        if(druzyny[0]!=null && druzyny[1]!=null){
+            druzyna.removeMecz(this);
+            throw new Exception("W meczu mogą brać udział tylko dwie druzyny");
+        }else
+        if(druzyny[0]!=null){
+            druzyny[1]=druzyna;
+        }else{
+            druzyny[0]=druzyna;
+        }
+    }
+    public void removeDruzyna(Druzyna druzyna) throws Exception{
+        if(druzyny[1]==druzyna){
+            druzyny[1]=null;
+        }else
+            if(druzyny[0]==druzyna){
+                druzyny[0]=null;
+            }else throw new Exception ("Druzyna "+druzyna+" nie bierze udziału w meczu");
+         
+    }
 }

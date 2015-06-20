@@ -58,8 +58,12 @@ public class Sedzia extends MyObject{
     }
 
     @Override
-    public String toString() {
-        return "Sedzia z uprawnieniami numer " + numerUprawnien + ",które uzyskał dnia " + dataUzyskaniaUprawnien.toString();
+    public String toString(){
+        return this.getOsoba().getImie()+" "+this.getOsoba().getNazwisko();
+    }
+    
+    public String toStringFull() {
+        return this.toString()+" z uprawnieniami numer " + numerUprawnien + ",które uzyskał dnia " + dataUzyskaniaUprawnien.toString();
     }
 
     public void addMecz(Mecz mecz){

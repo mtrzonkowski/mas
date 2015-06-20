@@ -76,19 +76,71 @@ public class Druzyna extends MyObject{
     }
     
 
-    //Metody
-    public void addZawodnik(Zawodnik zawodnik) {
-
-    }
-
-    public void removeZawodnik(Zawodnik zawodnik) {
-
-    }
-
-    public void dodajMecz(Mecz mecz) {
-
+     public void addZawodnik(Zawodnik zawodnik,Date dataPrzytapienia,String pozycja){
+       boolean nieMaAsocjacji = true;
+        if(!zawodnicyWDruzynie.isEmpty()){
+            for (ZawodnikWDruzynie zawodnikWDruzynie : zawodnicyWDruzynie) {
+                if(zawodnikWDruzynie.getZawodnik()==zawodnik && zawodnikWDruzynie.isZawodnikActive()){
+                    nieMaAsocjacji=false;
+                }
+            }
+        }
+        if(nieMaAsocjacji){
+            new ZawodnikWDruzynie(zawodnik, this,dataPrzytapienia,pozycja);
+        }
     }
     
+    public void removeZawodnik(Zawodnik zawodnik){
+        if(!zawodnicyWDruzynie.isEmpty()){
+            for (int i=zawodnicyWDruzynie.size()-1;i>-1;i--) {
+                if(zawodnicyWDruzynie.get(i).getZawodnik()==zawodnik){
+                    zawodnicyWDruzynie.get(i).removeZawodnik();
+                    zawodnicyWDruzynie.get(i).removeDruzyna();
+                    
+                }
+            }
+        }
+    }
+    
+    public ArrayList<Zawodnik> getZawodnicy(){
+        ArrayList<Zawodnik> zawodnicy=new ArrayList<Zawodnik>();
+        for(ZawodnikWDruzynie zawodnikWDruzynie : zawodnicyWDruzynie){
+            zawodnicy.add(zawodnikWDruzynie.getZawodnik());
+        }
+        return zawodnicy;
+    }
+    
+    public String printZawodnicy(){
+        String output="W drużynie "+this.getNazwa()+" są zawodnicy:\n";
+        if(zawodnicyWDruzynie.isEmpty()){
+            output+="Brak zawodnikiów\n";
+        }else{
+            for(ZawodnikWDruzynie zawodnikWDruzynie : zawodnicyWDruzynie){
+                output+="\t"+zawodnikWDruzynie.getZawodnik()+"\n";
+            }
+        }
+        return output;
+    }
+
+    public void destroyDruzyna(){
+        for(int i=zawodnicyWDruzynie.size()-1;i>-1;i--){
+            zawodnicyWDruzynie.get(i).destroyZawodnikWDruzynie();
+        }
+
+    }
+
+    public void dodajMecz(Mecz mecz) throws Exception {
+        if(!mecze.contains(mecz)){
+            mecze.add(mecz);
+            mecz.addDruzyna(this);
+        }
+    }
+    void removeMecz(Mecz mecz) throws Exception {
+        if(mecze.contains(mecz)){
+            mecze.remove(mecz);
+            mecz.removeDruzyna(this);
+        }
+    }    
     public void addListaStartowa(ListaStartowa listaStartowa){
         if(!listyStartowe.contains(listaStartowa)){
             listyStartowe.add(listaStartowa);
@@ -107,5 +159,7 @@ public class Druzyna extends MyObject{
     public String toString() {
         return this.nazwa;
     }
+
+ 
 
 }

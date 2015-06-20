@@ -13,13 +13,14 @@ import java.util.Date;
  */
 public class ZawodnikWDruzynie extends MyObject{
     
+    
     private Zawodnik zawodnik;
     private Druzyna druzyna;    
     private String pozycja;
     private Date dataPrzystapienia;
     private Date dataOdejscia=null;
 
-    public ZawodnikWDruzynie(Zawodnik zawodnik, Druzyna druzyna,Date dataPrzystapienia,String pozycja) {
+    public ZawodnikWDruzynie(Zawodnik zawodnik, Druzyna druzyna,Date dataPrzystapienia, String pozycja) {
         super();
         this.zawodnik = zawodnik;
         this.druzyna = druzyna;
@@ -33,7 +34,6 @@ public class ZawodnikWDruzynie extends MyObject{
         zawodnik.getZawodnikWDrużynie().remove(this);
         this.zawodnik=null;
     }
-
     public void removeDruzyna(){
         druzyna.getZawodnicyWDruzynie().remove(this);
         this.druzyna=null;

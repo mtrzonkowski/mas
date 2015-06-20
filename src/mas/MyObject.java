@@ -30,7 +30,9 @@ public class MyObject implements Serializable{
         
     }
    
-    
+    public static HashMap getEkstensje(){
+        return ekstensje;
+    }
     
     
 }
