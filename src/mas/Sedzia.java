@@ -28,13 +28,23 @@ public class Sedzia extends MyObject{
         osoba.setSedzia(this);
         mecze=new ArrayList<Mecz>();
     }
-
+    /**
+     * Tworzy nowy obiekt klasy Sedzia
+     * @param osoba
+     * @param numerUprawnien
+     * @param dataUzyskaniaUprawnien
+     * @return
+     * @throws Exception 
+     */
     public static Sedzia createSedzia(Osoba osoba, long numerUprawnien, Date dataUzyskaniaUprawnien) throws Exception {
         return new Sedzia(osoba, numerUprawnien, dataUzyskaniaUprawnien);
     }
-
+    /**
+     * Usuwa referencje na obiekt
+     */
     public void destroySedzia() {
-
+        osoba=null;
+        mecze.clear();
     }
 
     public Osoba getOsoba() {
@@ -65,11 +75,25 @@ public class Sedzia extends MyObject{
     public String toStringFull() {
         return this.toString()+" z uprawnieniami numer " + numerUprawnien + ",które uzyskał dnia " + dataUzyskaniaUprawnien.toString();
     }
-
+    /**
+     * Dodanie meczu do listy meczy
+     * @param mecz 
+     */
     public void addMecz(Mecz mecz){
         if(!mecze.contains(mecz)){
             mecze.add(mecz);
             mecz.setSedzia(this);
+        }
+    }
+    
+    public ArrayList<Mecz> getMecze() {
+        return mecze;
+    }
+
+    void removeMecz(Mecz mecz) {
+        if(mecze.contains(mecz)){
+            mecze.remove(mecz);
+            mecz.setSedzia(null);
         }
     }
     

@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author mtrzonkowski
  */
-public class Sektor extends MyObject{
+public class Sektor extends MyObject {
 
     private Pole pole;
     private String sektorNazwa;
@@ -98,5 +98,9 @@ public class Sektor extends MyObject{
         }
         return output;
     }
-
+    
+    @Override
+    public String toString() {
+        return this.sektorNazwa;
+    }
 }

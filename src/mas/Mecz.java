@@ -5,7 +5,7 @@
  */
 package mas;
 
-import javax.xml.crypto.Data;
+import java.util.Date;
 
 /**
  *
@@ -13,7 +13,7 @@ import javax.xml.crypto.Data;
  */
 public class Mecz extends MyObject{
     
-    private Data dataRozgrywki;
+    private Date dataRozgrywki;
     private int wynik;
     private StanMeczu stanMeczu;
     
@@ -22,20 +22,22 @@ public class Mecz extends MyObject{
     private Sektor sektor;
     private Sedzia sedzia;
 
-    public Mecz(Data dataRozgrywki, Sektor sektor, Sedzia sedzia) {
+    public Mecz(Druzyna druzyna1,Druzyna druzyna2,Date dataRozgrywki, Sektor sektor, Sedzia sedzia) {
         super();
+        this.druzyny[0]=druzyna1;
+        this.druzyny[1]=druzyna2;
         this.dataRozgrywki = dataRozgrywki;
         this.sektor = sektor;
-        this.sedzia = sedzia;
+        setSedzia(sedzia);
         this.stanMeczu=StanMeczu.ZAPLANOWANY;
         this.wynik=-1;
     }
 
-    public Data getDataRozgrywki() {
+    public Date getDataRozgrywki() {
         return dataRozgrywki;
     }
 
-    public void setDataRozgrywki(Data dataRozgrywki) {
+    public void setDataRozgrywki(Date dataRozgrywki) {
         this.dataRozgrywki = dataRozgrywki;
     }
 
@@ -68,7 +70,13 @@ public class Mecz extends MyObject{
     }
 
     public void setSedzia(Sedzia sedzia) {
+        if(this.sedzia!=sedzia && this.sedzia!=null){
+            this.sedzia.removeMecz(this);
+        }
         this.sedzia = sedzia;
+        if(sedzia!=null){
+            sedzia.addMecz(this);
+        }
     }
 
     public StanMeczu getStanMeczu() {
@@ -98,5 +106,10 @@ public class Mecz extends MyObject{
                 druzyny[0]=null;
             }else throw new Exception ("Druzyna "+druzyna+" nie bierze udziału w meczu");
          
+    }
+    
+    @Override
+    public String toString(){
+        return druzyny[0]+"-"+druzyny[1]+" "+dataRozgrywki.getDate()+"/"+dataRozgrywki.getMonth()+"/"+dataRozgrywki.getYear()+" "+sektor;
     }
 }
