@@ -29,11 +29,16 @@ public class ZawodnikWDruzynie extends MyObject{
         zawodnik.getZawodnikWDrużynie().add(this);
         druzyna.getZawodnicyWDruzynie().add(this);
     } 
-
+    /**
+     * Usunięcie referencji na obiekt klasy Zawodnik
+     */
     public void removeZawodnik(){
         zawodnik.getZawodnikWDrużynie().remove(this);
         this.zawodnik=null;
     }
+    /**
+     * Usunięcie referencji na obiekt klasy Druzyna
+     */
     public void removeDruzyna(){
         druzyna.getZawodnicyWDruzynie().remove(this);
         this.druzyna=null;
@@ -83,7 +88,12 @@ public class ZawodnikWDruzynie extends MyObject{
     public void setDataOdejscia(Date dataOdejscia) {
         this.dataOdejscia = dataOdejscia;
     }
-
+    /**
+     * Zwraca informacje czy zawodnik jest aktywny.
+     * True jeśli zawodnik jest aktywny.
+     * False jeśli zawodnik jest nieaktywny.
+     * @return 
+     */
     public boolean isZawodnikActive(){
         if(dataOdejscia!=null){
             return false;
@@ -93,8 +103,12 @@ public class ZawodnikWDruzynie extends MyObject{
         }
     }
     
+    /**
+     * Usunięcie wszystkich referencji tego obiektu jak również na ten obiekt.
+     */
     public void destroyZawodnikWDruzynie(){
         removeZawodnik();
+        removeDruzyna();
      }
        
 }

@@ -50,18 +50,26 @@ public class Pole extends MyObject{
     public void setRozmiar(int rozmiar) {
         this.rozmiar = rozmiar;
     }
-
+    
+    /**
+     * Dodanie obiektu typu sektor
+     * @param sektor
+     * @throws Exception 
+     */
     public void addSektor(Sektor sektor) throws Exception {
         if(wszystkieSektory.contains(sektor)){
             throw new Exception("Sektor "+sektor+" nalezydo "+sektor.getPole());
         }
         wszystkieSektory.add(sektor);
-        if (!sektory.contains(sektor)) {
+        if (!sektory.contains(sektor)&&sektor.getPole()==null) {
             sektory.add(sektor);
         }
 
     }
-
+    /**
+     * Usuwa obiekt klasy Sektor
+     * @param sektor 
+     */
     public void removeSektor(Sektor sektor) {
         if (sektory.contains(sektor)) {
             sektory.remove(sektor);

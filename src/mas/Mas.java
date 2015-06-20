@@ -36,8 +36,14 @@ public class Mas {
         Sedzia sedzia3=Sedzia.createSedzia(osoba3, 3521456, new Date(1,1,2005));
         
         Mecz mecz1 = new Mecz(druzyna1, druzyna2,new Date(1,7,2015), sektor1, sedzia1);
-        Mecz mecz2 = new Mecz(druzyna3, druzyna4,new Date(1,7,2015), sektor1, null);
-        
+        Mecz mecz2 = new Mecz(druzyna2, druzyna3,new Date(1,7,2015), sektor1, null);
+        Mecz mecz3 = new Mecz(druzyna3, druzyna4,new Date(1,7,2015), sektor1, sedzia2);
+        Mecz mecz4 = new Mecz(druzyna4, druzyna1,new Date(1,7,2015), sektor1, null);
+        Mecz mecz5 = new Mecz(druzyna4, druzyna2,new Date(1,7,2015), sektor1, sedzia3);
+        Mecz mecz6 = new Mecz(druzyna3, druzyna1,new Date(1,7,2015), sektor1, null);
+        Mecz mecz7 = new Mecz(druzyna2, druzyna1,new Date(1,7,2015), sektor1, sedzia1);
+        Mecz mecz8 = new Mecz(druzyna1, druzyna4,new Date(1,7,2015), sektor1, null);
+      
         MainForm mform=new MainForm();
         mform.setVisible(true);
     }

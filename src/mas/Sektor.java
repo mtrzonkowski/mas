@@ -72,20 +72,37 @@ public class Sektor extends MyObject {
         return dlugosc;
     }
 
+    /**
+     * Dodaje mecz na sektorze
+     * @param mecz 
+     */
     public void addMecz(Mecz mecz) {
-        mecze.add(mecz);
-//            mecz.
+        if(!mecze.contains(mecz)){
+            mecze.add(mecz);
+            mecz.setSektor(this);
+        }
+        
     }
 
+    /**
+     * Usuwa mecz na sektorze
+     * @param mecz 
+     */
     public void removeMecz(Mecz mecz) {
-        mecze.remove(mecz);
+        if(mecze.contains(mecz)){
+            mecze.remove(mecz);
+            mecz.setSektor(null);
+        }    
 
     }
 
     public ArrayList getMecze() {
         return mecze;
     }
-
+    /**
+     * Wyświetla listę meczy
+     * @return 
+     */
     public String getListaMeczyString() {
         String output = "Lista meczy";
         if (mecze.isEmpty()) {

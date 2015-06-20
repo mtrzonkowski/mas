@@ -22,7 +22,6 @@ public class SedziaMecze extends javax.swing.JPanel {
         initComponents();
         comboBox1Values();
         comboBox2Values();
-        listValuse((Sedzia)jComboBox1.getSelectedItem());
     }
 
     /**

@@ -5,6 +5,7 @@
  */
 package mas;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -120,6 +121,7 @@ public class Mecz extends MyObject{
     
     @Override
     public String toString(){
-        return druzyny[0]+"-"+druzyny[1]+" "+dataRozgrywki.getDate()+"/"+dataRozgrywki.getMonth()+"/"+dataRozgrywki.getYear()+" "+sektor;
+        SimpleDateFormat df=new SimpleDateFormat("dd.MM.yyyy");
+        return druzyny[0]+"-"+druzyny[1]+" "+df.format(dataRozgrywki)+" "+sektor;
     }
 }
