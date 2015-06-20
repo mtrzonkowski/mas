@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author mtrzonkowski
  */
-public class Sektor {
+public class Sektor extends MyObject{
 
     private Pole pole;
     private String sektorNazwa;
@@ -21,6 +21,7 @@ public class Sektor {
     private ArrayList<Mecz> mecze = new ArrayList<Mecz>();
 
     private Sektor(Pole pole, String sektorNazwa, String sektorOpis, int dlugosc, int szerokosc) throws Exception {
+        super();
         this.pole = pole;
         this.sektorNazwa = sektorNazwa;
         this.sektorOpis = sektorOpis;

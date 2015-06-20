@@ -12,7 +12,7 @@ import java.util.Date;
  *
  * @author mtrzonkowski
  */
-public class Zawodnik {
+public class Zawodnik extends MyObject{
     
     private Plec plec;
     private Date dataRejestracji;
@@ -24,6 +24,7 @@ public class Zawodnik {
     private ArrayList<ZawodnikWDruzynie> zawodnikWDruzynach=new ArrayList<ZawodnikWDruzynie>();
     
     public Zawodnik(Osoba osoba,Plec plec, Date dataRejestracji, String rodzajWyposarzenia) {
+        super();
         this.osoba = osoba;
         this.plec = plec;
         this.dataRejestracji = dataRejestracji;

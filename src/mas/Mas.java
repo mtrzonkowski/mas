@@ -5,6 +5,8 @@
  */
 package mas;
 
+import gui.MainForm;
+
 /**
  *
  * @author Michał
@@ -15,7 +17,8 @@ public class Mas {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        MainForm mform=new MainForm();
+        mform.setVisible(true);
     }
     
 }

@@ -12,7 +12,7 @@ import java.util.Date;
  *
  * @author mtrzonkowski
  */
-public class Sedzia {
+public class Sedzia extends MyObject{
 
     private long numerUprawnien;
     private Date dataUzyskaniaUprawnien;
@@ -21,6 +21,7 @@ public class Sedzia {
     private ArrayList<Mecz> mecze;
 
     private Sedzia(Osoba osoba, long numerUprawnien, Date dataUzyskaniaUprawnien) throws Exception {
+        super();
         this.osoba = osoba;
         this.numerUprawnien = numerUprawnien;
         this.dataUzyskaniaUprawnien = dataUzyskaniaUprawnien;

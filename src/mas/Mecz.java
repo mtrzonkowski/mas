@@ -11,7 +11,7 @@ import javax.xml.crypto.Data;
  *
  * @author mtrzonkowski
  */
-public class Mecz {
+public class Mecz extends MyObject{
     
     private Data dataRozgrywki;
     private int wynik;
@@ -23,6 +23,7 @@ public class Mecz {
     private Sedzia sedzia;
 
     public Mecz(Data dataRozgrywki, Sektor sektor, Sedzia sedzia) {
+        super();
         this.dataRozgrywki = dataRozgrywki;
         this.sektor = sektor;
         this.sedzia = sedzia;

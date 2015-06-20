@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author mtrzonkowski
  */
-public class Pole {
+public class Pole extends MyObject{
 
     private String nazwa;
     private String adres;
@@ -21,6 +21,7 @@ public class Pole {
     private static ArrayList<Sektor> wszystkieSektory = new ArrayList<Sektor>();
 
     public Pole(String nazwa, String adres, int rozmiar) {
+        super();
         this.nazwa = nazwa;
         this.adres = adres;
         this.rozmiar = rozmiar;

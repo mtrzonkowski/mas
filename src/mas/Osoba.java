@@ -12,7 +12,7 @@ import java.util.Date;
  *
  * @author mtrzonkowski
  */
-public class Osoba {
+public class Osoba extends MyObject{
     
     private String imie;
     private String nazwisko;
@@ -22,6 +22,7 @@ public class Osoba {
     private Sedzia  sedzia;
 
     public Osoba(String imie, String nazwisko, Date dataUrodzenia) {
+        super();
         this.imie = imie;
         this.nazwisko = nazwisko;
         this.datrUrodzenia = dataUrodzenia;

@@ -12,7 +12,7 @@ import java.util.HashMap;
  *
  * @author mtrzonkowski
  */
-public class ListaStartowa {
+public class ListaStartowa extends MyObject{
     
     private String kategoria;
     
@@ -20,6 +20,7 @@ public class ListaStartowa {
     private HashMap<String,Druzyna> druzyny;
 
     private ListaStartowa( Turniej turniej,String kategoria) {
+        super();
         this.kategoria = kategoria;
         this.turniej = turniej;
     }

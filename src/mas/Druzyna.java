@@ -12,7 +12,7 @@ import java.util.Date;
  *
  * @author mtrzonkowski
  */
-public class Druzyna {
+public class Druzyna extends MyObject{
 
     //Atrybuty
     private String nazwa;
@@ -26,6 +26,7 @@ public class Druzyna {
     private ArrayList<Mecz> mecze;
 
     public Druzyna(String nazwa, String opis, Date dataPowstania) {
+        super();
         this.nazwa = nazwa;
         this.opis = opis;
         this.dataPowstania = dataPowstania;

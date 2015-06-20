@@ -5,12 +5,32 @@
  */
 package mas;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.HashMap;
+
 /**
  *
  * @author mtrzonkowski
  */
-public class MyObject {
-    
+public class MyObject implements Serializable{
+    private static HashMap ekstensje=new HashMap();
+
+    public MyObject() {
+        ArrayList ekstensja=null;
+        Class klasa=this.getClass();
+        if(ekstensje.containsKey(klasa)){
+              ekstensja=(ArrayList)ekstensje.get(klasa);
+        }
+        else{
+            ekstensja=new ArrayList();
+            ekstensje.put(klasa, ekstensja);
+        }
+        ekstensja.add(this);
+        
+    }
    
+    
+    
     
 }

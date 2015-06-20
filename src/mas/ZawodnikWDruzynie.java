@@ -11,7 +11,7 @@ import java.util.Date;
  *
  * @author mtrzonkowski
  */
-public class ZawodnikWDruzynie {
+public class ZawodnikWDruzynie extends MyObject{
     
     private Zawodnik zawodnik;
     private Druzyna druzyna;    
@@ -20,6 +20,7 @@ public class ZawodnikWDruzynie {
     private Date dataOdejscia=null;
 
     public ZawodnikWDruzynie(Zawodnik zawodnik, Druzyna druzyna,Date dataPrzystapienia,String pozycja) {
+        super();
         this.zawodnik = zawodnik;
         this.druzyna = druzyna;
         this.dataPrzystapienia=dataPrzystapienia;

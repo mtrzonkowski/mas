@@ -12,7 +12,7 @@ import java.util.Date;
  *
  * @author mtrzonkowski
  */
-public class Turniej {
+public class Turniej extends MyObject{
 
     private String nazwa;
     private Date dataRozpoczecia;
@@ -23,6 +23,7 @@ public class Turniej {
     private ArrayList<ListaStartowa> listyStartowe;
 
     public Turniej(String nazwa, Date dataRozpoczecia, Date dataZakonczenia, ProfTyp typProfesjonalizmu) {
+        super();
         this.nazwa = nazwa;
         this.dataRozpoczecia = dataRozpoczecia;
         this.dataZakonczenia = dataZakonczenia;
