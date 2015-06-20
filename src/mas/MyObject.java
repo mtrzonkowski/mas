@@ -57,4 +57,6 @@ public class MyObject implements Serializable{
     public static void czytajEkstensje(ObjectInputStream wejscie) throws Exception {
         ekstensje = (HashMap) wejscie.readObject();
     }
+    
+
 }

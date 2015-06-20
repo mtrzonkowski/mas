@@ -6,6 +6,9 @@
 package gui;
 
 import java.util.ArrayList;
+import javax.swing.DefaultListModel;
+import javax.swing.JList;
+import javax.swing.ListModel;
 import mas.Mecz;
 import mas.Sedzia;
 
@@ -35,35 +38,34 @@ public class SedziaMecze extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        sedziaComboBox = new javax.swing.JComboBox();
         jLabel3 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox();
-        jButton2 = new javax.swing.JButton();
+        meczeComboBox = new javax.swing.JComboBox();
+        przypiszButton = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        meczeList = new javax.swing.JList();
 
         jLabel1.setText("Wybierz sędziego:");
 
         jLabel2.setText("Mecze:");
 
-        jComboBox1.addItemListener(new java.awt.event.ItemListener() {
+        sedziaComboBox.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                jComboBox1ItemStateChanged(evt);
+                sedziaComboBoxItemStateChanged(evt);
             }
         });
-
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane2.setViewportView(jTextArea1);
 
         jLabel3.setText("Nieprzypisane mecze:");
 
-        jButton2.setText("Przypisz mecz");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        przypiszButton.setText("Przypisz mecz");
+        przypiszButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                przypiszButtonActionPerformed(evt);
             }
         });
+
+        meczeList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jScrollPane1.setViewportView(meczeList);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -74,15 +76,15 @@ public class SedziaMecze extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel1)
                     .addComponent(jLabel3)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(meczeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(przypiszButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(sedziaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 574, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 574, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -95,65 +97,62 @@ public class SedziaMecze extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(sedziaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(61, 61, 61)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 225, Short.MAX_VALUE))
-                    .addComponent(jScrollPane2))
+                        .addComponent(meczeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(15, 15, 15)
+                        .addComponent(przypiszButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 221, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        Sedzia sedzia=(Sedzia)jComboBox1.getSelectedItem();
-        sedzia.addMecz((Mecz)jComboBox2.getSelectedItem());
+    private void przypiszButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_przypiszButtonActionPerformed
+        Sedzia sedzia=(Sedzia)sedziaComboBox.getSelectedItem();
+        sedzia.addMecz((Mecz)meczeComboBox.getSelectedItem());
         comboBox2Values();
-        listValuse((Sedzia)jComboBox1.getSelectedItem());
-    }//GEN-LAST:event_jButton2ActionPerformed
+        listValuse((Sedzia)sedziaComboBox.getSelectedItem());
+    }//GEN-LAST:event_przypiszButtonActionPerformed
 
-    private void jComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox1ItemStateChanged
-        listValuse((Sedzia)jComboBox1.getSelectedItem());
-    }//GEN-LAST:event_jComboBox1ItemStateChanged
+    private void sedziaComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_sedziaComboBoxItemStateChanged
+        listValuse((Sedzia)sedziaComboBox.getSelectedItem());
+    }//GEN-LAST:event_sedziaComboBoxItemStateChanged
 
     public void comboBox1Values() {
-        jComboBox1.removeAllItems();
+        sedziaComboBox.removeAllItems();
         ArrayList<Sedzia> sedziowie = (ArrayList<Sedzia>) Sedzia.getEkstensje().get(Sedzia.class);
         for (Sedzia sedzia : sedziowie) {
-            jComboBox1.addItem(sedzia);
+            sedziaComboBox.addItem(sedzia);
         }
     }
     public void comboBox2Values(){
-        jComboBox2.removeAllItems();
+        meczeComboBox.removeAllItems();
         ArrayList<Mecz> mecze=(ArrayList<Mecz>)Mecz.getEkstensje().get(Mecz.class);
         for(Mecz mecz:mecze){
-            if(mecz.getSedzia()==null){jComboBox2.addItem(mecz);}
+            if(mecz.getSedzia()==null){meczeComboBox.addItem(mecz);}
         }
     }
             
     public void listValuse(Sedzia sedzia){
-        String value="";
-        if(sedzia.getMecze().size()<1){
-            value+="Brak meczy";
-        }else{
-            for(Mecz mecz:sedzia.getMecze()){
-                value+=mecz+"\n";
-            }
+        DefaultListModel<Mecz> model = new DefaultListModel<Mecz>();
+        for(Mecz mecze:sedzia.getMecze()){
+            model.addElement(mecze);
         }    
-        jTextArea1.setText(value);
+        meczeList.setModel(model);
+               
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox jComboBox1;
-    private javax.swing.JComboBox jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JComboBox meczeComboBox;
+    private javax.swing.JList meczeList;
+    private javax.swing.JButton przypiszButton;
+    private javax.swing.JComboBox sedziaComboBox;
     // End of variables declaration//GEN-END:variables
 }
